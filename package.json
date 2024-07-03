@@ -9,7 +9,7 @@
     "asChild"
   ],
   "author": "Robin Scholz <https://github.com/robinscholz>, Christoph Jeworutzki <https://github.com/ChristophJeworutzki>",
-  "repository": "https://github.com/magicasaservice/vue-primitive",
+  "repository": "magicasaservice/vue-primitive",
   "license": "MIT",
   "scripts": {
     "build": "vite build",
