@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
-import { Primitive } from './'
+import { Primitive } from './Primitive'
 import { defineComponent, h, markRaw } from 'vue'
 
 describe('test Primitive component', () => {
