@@ -49,5 +49,11 @@
     "vitest": "^1.6.0",
     "vue": "^3.4.31"
   },
-  "packageManager": "pnpm@9.4.0"
+  "packageManager": "pnpm@9.4.0",
+  "release-it": {
+    "hooks": {
+      "before:init": "pnpm run test",
+      "after:bump": "pnpm run build"
+    }
+  }
 }
