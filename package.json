@@ -13,7 +13,7 @@
   "license": "MIT",
   "scripts": {
     "build": "vite build",
-    "release": "release-it",
+    "release": "pnpm run test && pnpm run build && release-it",
     "test": "vitest"
   },
   "type": "module",
@@ -49,11 +49,5 @@
     "vitest": "^1.6.0",
     "vue": "^3.4.31"
   },
-  "packageManager": "pnpm@9.4.0",
-  "release-it": {
-    "hooks": {
-      "before:init": "pnpm run test",
-      "after:bump": "pnpm run build"
-    }
-  }
+  "packageManager": "pnpm@9.4.0"
 }
