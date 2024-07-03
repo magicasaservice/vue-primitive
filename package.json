@@ -13,8 +13,9 @@
   "license": "MIT",
   "scripts": {
     "build": "vite build",
-    "release": "pnpm run build && release-it",
-    "test": "vitest"
+    "release": "pnpm test && pnpm run build && release-it",
+    "test": "vitest run",
+    "test:watch": "vitest watch"
   },
   "type": "module",
   "main": "dist/index.mjs",
