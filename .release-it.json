@@ -6,9 +6,6 @@
   "npm": {
     "allowSameVersion": true
   },
-  "github": {
-    "release": true
-  },
   "plugins": {
     "@release-it/bumper": {
       "in": "package.json",
@@ -16,7 +13,7 @@
     }
   },
   "hooks": {
-    "before:init": "pnpm run test",
-    "after:bump": "pnpm run build"
+    "before:init": "pnpm run test --verbose",
+    "after:bump": "pnpm run build --verbose"
   }
 }
