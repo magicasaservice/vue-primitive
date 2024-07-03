@@ -1,7 +1,7 @@
 {
   "name": "@maas/vue-primitive",
   "version": "1.0.0",
-  "description": "",
+  "description": "Vue component for passing attributes to slot content",
   "keywords": [
     "Vue",
     "Component",
@@ -9,6 +9,7 @@
     "asChild"
   ],
   "author": "Robin Scholz <https://github.com/robinscholz>, Christoph Jeworutzki <https://github.com/ChristophJeworutzki>",
+  "repository": "https://github.com/magicasaservice/vue-primitive",
   "license": "MIT",
   "scripts": {
     "build": "vite build",
