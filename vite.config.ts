@@ -24,7 +24,7 @@ export default defineConfig({
       name: 'vue',
       formats: ['es', 'umd'],
       fileName: 'index',
-      entry: resolve(__dirname, 'src/components/index.ts'),
+      entry: resolve(__dirname, 'src/index.ts'),
     },
     rollupOptions: {
       external: ['vue'],
