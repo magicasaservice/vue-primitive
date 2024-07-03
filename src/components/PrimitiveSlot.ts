@@ -1,5 +1,3 @@
-// https://github.com/radix-vue/radix-vue/blob/main/packages/radix-vue/src/Primitive/Slot.ts
-
 import {
   Comment,
   Fragment,
