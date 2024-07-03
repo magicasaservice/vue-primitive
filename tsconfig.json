@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "skipLibCheck": false,
+    "strict": true,
+    "module": "es2022",
+    "target": "es2022",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true
+  }
+}

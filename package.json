@@ -1,0 +1,41 @@
+{
+  "name": "@maas/vue-primitive",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "Vue",
+    "Component",
+    "Primitive",
+    "asChild"
+  ],
+  "author": "Robin Scholz <https://github.com/robinscholz>, Christoph Jeworutzki <https://github.com/ChristophJeworutzki>",
+  "license": "MIT",
+  "scripts": {
+    "build": "vite build",
+    "release": "release-it",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "main": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.umd.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.6.0",
+    "@types/node": "^20.14.9",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "eslint": "9.x",
+    "eslint-plugin-vue": "^9.27.0",
+    "globals": "^15.8.0",
+    "typescript-eslint": "^7.15.0",
+    "vite": "^5.3.3",
+    "vite-plugin-dts": "^3.9.1",
+    "vue": "^3.4.31"
+  },
+  "packageManager": "pnpm@9.4.0"
+}
