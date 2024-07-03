@@ -6,6 +6,41 @@
 pnpm install @maas/vue-primitive
 ```
 
+## Basic Usage
+
+### as
+
+```vue
+<template>
+  <Primitive as="button" type="button" @click="handleClick">
+    Click me
+  </Primitive>
+</template>
+```
+
+```html
+<button type="button">Click me</button>
+```
+
+### asChild
+
+```vue
+<template>
+  <Primitive
+    as-child
+    type="button"
+    class="my-button"
+    @click="handleClick"
+  >
+    <button>Click me</button>
+  </Primitive>
+</template>
+```
+
+```html
+<button type="button" class="my-button">Click me</button>
+```
+
 ## 🐛 Found a Bug?
 
 If you see something that doesn’t look right, [submit a bug report](https://github.com/magicasaservice/vue-primitive/issues/new?assignees=&labels=bug%2Cpending+triage&template=bug_report.yml). See it. Say it. Sorted.
