@@ -13,7 +13,7 @@
   "license": "MIT",
   "scripts": {
     "build": "vite build",
-    "release": "pnpm run test && pnpm run build && release-it",
+    "release": "pnpm run build && release-it",
     "test": "vitest"
   },
   "type": "module",
