@@ -1,12 +1,29 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
   "compilerOptions": {
-    "esModuleInterop": true,
-    "skipLibCheck": false,
+    "target": "esnext",
+    "jsx": "preserve",
+    "lib": ["esnext", "dom"],
+    "baseUrl": ".",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "resolveJsonModule": true,
+    "types": ["node", "@types/jsdom", "@testing-library/jest-dom"],
     "strict": true,
-    "module": "es2022",
-    "target": "es2022",
-    "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true
-  }
+    "declaration": false,
+    "outDir": "dist",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "env.d.ts",
+    "src/**/*",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ]
 }
