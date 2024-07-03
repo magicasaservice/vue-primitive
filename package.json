@@ -1,6 +1,6 @@
 {
   "name": "@maas/vue-primitive",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Vue component for passing attributes to slot content",
   "keywords": [
     "Vue",
