@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { Primitive } from './Primitive'
 import { defineComponent, h, markRaw } from 'vue'
 
-describe('test Primitive component', () => {
+describe('Primitive', () => {
   it('should render div element correctly', () => {
     const wrapper = mount(Primitive)
     expect(wrapper.find('div').exists()).toBe(true)
@@ -62,7 +62,7 @@ describe('test Primitive component', () => {
     expect(element.findAll('div').length).toBe(3)
   })
 
-  // ref: https://vitest.dev/api/expect.html#tothrowerror
+  // https://vitest.dev/api/expect.html#tothrowerror
   describe('render as template (asChild)', () => {
     it('should not throw error when multiple child elements exist', () => {
       const wrapper = () =>
