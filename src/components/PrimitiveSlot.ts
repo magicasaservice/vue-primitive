@@ -36,13 +36,10 @@ export const PrimitiveSlot = defineComponent({
       }
 
       const nonCommentChild = children[nonCommentChildIndex]
-      console.log('nonCommentChild:', nonCommentChild)
 
       const mergedProps = nonCommentChild.props
         ? mergeProps(attrs, nonCommentChild.props)
         : attrs
-
-      console.log('mergedProps:', mergedProps)
 
       // Prevent class duplication
       if (attrs.class && nonCommentChild.props?.class) {
