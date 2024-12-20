@@ -1,12 +1,12 @@
-# Vue Primitive
+# 🥚 Vue Primitive
 
-## Installation
+## 📦 Install
 
 ```
 pnpm install @maas/vue-primitive
 ```
 
-## Basic Usage
+## 🚀 Usage
 
 ### as
 
