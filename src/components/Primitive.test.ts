@@ -112,7 +112,7 @@ describe('Primitive', () => {
 
       const element = wrapper.find('div')
       expect(element.attributes('class')).toBe(
-        'parent-class child-class second-child-class'
+        'parent-class child-class second-child-class',
       )
     })
 
@@ -122,7 +122,7 @@ describe('Primitive', () => {
           setup(props, { slots }) {
             return () => h('button', { id: 'custom-button' }, slots)
           },
-        })
+        }),
       )
 
       const wrapper = mount(Primitive, {
@@ -135,7 +135,7 @@ describe('Primitive', () => {
       })
 
       expect(wrapper.html()).toBe(
-        '<button id="custom-button" class="parent-class"></button>'
+        '<button id="custom-button" class="parent-class"></button>',
       )
     })
 
