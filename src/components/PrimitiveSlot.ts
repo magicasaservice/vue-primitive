@@ -27,7 +27,7 @@ export const PrimitiveSlot = defineComponent({
       const children = renderSlotFragments(slots.default())
 
       const nonCommentChildIndex = children.findIndex(
-        (child) => child.type !== Comment,
+        (child) => child.type !== Comment
       )
 
       // If there is no non-comment child, return the children as is
