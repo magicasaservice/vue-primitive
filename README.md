@@ -6,7 +6,7 @@
 pnpm install @maas/vue-primitive
 ```
 
-## 🚀 Usage
+## 🪄 Use
 
 ### as
 
@@ -26,12 +26,7 @@ pnpm install @maas/vue-primitive
 
 ```vue
 <template>
-  <Primitive
-    as-child
-    type="button"
-    class="my-button"
-    @click="handleClick"
-  >
+  <Primitive as-child type="button" class="my-button" @click="handleClick">
     <button>Click me</button>
   </Primitive>
 </template>
