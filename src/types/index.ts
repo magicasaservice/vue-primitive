@@ -1,4 +1,4 @@
-import { Raw, type Component } from 'vue'
+import type { Raw, Component } from 'vue'
 
 export type ElementOrComponent =
   | 'a'

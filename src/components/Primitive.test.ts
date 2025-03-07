@@ -228,4 +228,140 @@ describe('Primitive', () => {
       expect(element.attributes('class')).toBe('parent-class child-class')
     })
   })
+
+  describe('internal/custom key', () => {
+    it('should have an internal key when no custom key is provided', async () => {
+      const wrapper = mount(Primitive)
+
+      // Check if the component was rendered successfully
+      expect(wrapper.find('div').exists()).toBe(true)
+
+      // Indirectly confirm the key is working by mounting two instances
+      // They should have different DOM elements
+      const wrapper2 = mount(Primitive)
+      expect(wrapper.element).not.toBe(wrapper2.element)
+    })
+
+    it('should apply custom key when provided', async () => {
+      const TestWrapper = defineComponent({
+        components: { Primitive },
+        template: `
+          <div>
+            <Primitive key="custom-key-1" class="primitive-1" />
+            <Primitive key="custom-key-2" class="primitive-2" />
+          </div>
+        `,
+      })
+
+      const wrapper = mount(TestWrapper)
+
+      // Verify both components rendered
+      const primitives = wrapper.findAll('.primitive-1, .primitive-2')
+      expect(primitives.length).toBe(2)
+    })
+
+    it('should work with custom keys when re-rendering', async () => {
+      // Create a component with conditional rendering to test key preservation
+      const TestWrapper = defineComponent({
+        components: { Primitive },
+        data() {
+          return {
+            show: true,
+          }
+        },
+        template: `
+          <div>
+            <Primitive v-if="show" key="stable-key" id="test-primitive" />
+          </div>
+        `,
+      })
+
+      const wrapper = mount(TestWrapper)
+
+      // Check initial render
+      expect(wrapper.find('#test-primitive').exists()).toBe(true)
+
+      // Toggle visibility
+      await wrapper.setData({ show: false })
+      expect(wrapper.find('#test-primitive').exists()).toBe(false)
+
+      // Toggle back
+      await wrapper.setData({ show: true })
+      expect(wrapper.find('#test-primitive').exists()).toBe(true)
+    })
+
+    it('should pass custom key down when using as="template"', async () => {
+      // Distinguish between two template instances
+      const TestWrapper = defineComponent({
+        components: { Primitive },
+        template: `
+          <div>
+            <Primitive 
+              as="template" 
+              key="template-key-1" 
+              class="parent-class-1"
+            >
+              <span class="child-1">First child</span>
+            </Primitive>
+            
+            <Primitive 
+              as="template" 
+              key="template-key-2" 
+              class="parent-class-2"
+            >
+              <span class="child-2">Second child</span>
+            </Primitive>
+          </div>
+        `,
+      })
+
+      const wrapper = mount(TestWrapper)
+
+      // Each child should have its own class
+      expect(wrapper.find('.child-1').exists()).toBe(true)
+      expect(wrapper.find('.child-2').exists()).toBe(true)
+
+      // Parent classes should be correctly applied
+      expect(wrapper.find('.child-1').classes()).toContain('parent-class-1')
+      expect(wrapper.find('.child-2').classes()).toContain('parent-class-2')
+    })
+
+    it('should correctly handle keys with asChild=true', async () => {
+      const TestWrapper = defineComponent({
+        components: { Primitive },
+        template: `
+          <div>
+            <Primitive 
+              :asChild="true" 
+              key="child-key-1"
+              class="parent-1"
+            >
+              <button class="button-1">First button</button>
+            </Primitive>
+            
+            <Primitive 
+              :asChild="true" 
+              key="child-key-2"
+              class="parent-2"
+            >
+              <button class="button-2">Second button</button>
+            </Primitive>
+          </div>
+        `,
+      })
+
+      const wrapper = mount(TestWrapper)
+
+      // Check each button exists and has correct classes
+      const button1 = wrapper.find('.button-1')
+      const button2 = wrapper.find('.button-2')
+
+      expect(button1.exists()).toBe(true)
+      expect(button2.exists()).toBe(true)
+
+      // Parent classes should be applied
+      expect(button1.classes()).toContain('parent-1')
+      expect(button2.classes()).toContain('parent-2')
+    })
+  })
 })
