@@ -72,8 +72,6 @@ export const PrimitiveSlot = defineComponent({
         }
       }
 
-      console.log(cloned.props)
-
       if (children.length === 1) {
         return cloned
       } else {
