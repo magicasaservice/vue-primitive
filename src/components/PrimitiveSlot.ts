@@ -4,7 +4,6 @@ import {
   cloneVNode,
   defineComponent,
   mergeProps,
-  useId,
   type VNode,
 } from 'vue'
 
@@ -22,9 +21,6 @@ export const PrimitiveSlot = defineComponent({
   name: 'PrimitiveSlot',
   inheritAttrs: false,
   setup(_, { attrs, slots }) {
-    // Generate a unique ID for this component instance
-    const id = useId()
-
     return () => {
       if (!slots.default) return null
 
@@ -46,15 +42,9 @@ export const PrimitiveSlot = defineComponent({
 
       const nonCommentChild = children[nonCommentChildIndex]
 
-      // Use the child’s key if present, otherwise use our generated ID
-      const childKey = nonCommentChild.key !== null ? nonCommentChild.key : id
-
-      let mergedProps = nonCommentChild.props
+      const mergedProps = nonCommentChild.props
         ? mergeProps(attrs, nonCommentChild.props)
         : attrs
-
-      // Ensure the key is included in mergedProps
-      mergedProps = { ...mergedProps, key: childKey }
 
       // Prevent class duplication
       if (attrs.class && nonCommentChild.props?.class) {

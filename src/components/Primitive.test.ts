@@ -352,7 +352,7 @@ describe('Primitive', () => {
 
       const wrapper = mount(TestWrapper)
 
-      // Check each button exists and has correct classes
+      // Check that each button exists and has correct classes
       const button1 = wrapper.find('.button-1')
       const button2 = wrapper.find('.button-2')
 
