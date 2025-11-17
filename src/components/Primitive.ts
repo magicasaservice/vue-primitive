@@ -39,3 +39,6 @@ export const Primitive = defineComponent({
     }
   },
 })
+
+// Alias for explicit imports
+export const VuePrimitive = Primitive

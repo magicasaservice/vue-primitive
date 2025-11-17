@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
-import { Primitive } from './Primitive'
+import { Primitive, VuePrimitive } from './Primitive'
 import { defineComponent, h, markRaw } from 'vue'
 
 describe('Primitive', () => {
@@ -363,5 +363,12 @@ describe('Primitive', () => {
       expect(button1.classes()).toContain('parent-1')
       expect(button2.classes()).toContain('parent-2')
     })
+  })
+})
+
+describe('VuePrimitive', () => {
+  it('should render div element correctly', () => {
+    const wrapper = mount(VuePrimitive)
+    expect(wrapper.find('div').exists()).toBe(true)
   })
 })
