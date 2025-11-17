@@ -8,6 +8,19 @@ pnpm install @maas/vue-primitive
 
 ## 🪄 Use
 
+### import
+
+```ts
+import { Primitive } from '@maas/vue-primitive'
+```
+
+> [!TIP]
+> To avoid a clash of names when using TresJs you can also import an alias
+
+```ts
+import { VuePrimitive } from '@maas/vue-primitive's
+```
+
 ### as
 
 ```vue
