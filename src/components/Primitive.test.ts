@@ -116,6 +116,30 @@ describe('Primitive', () => {
       )
     })
 
+    it('should keep the child’s class across re-renders', async () => {
+      const Counter = defineComponent({
+        components: { Primitive },
+        data: () => ({ count: 0 }),
+        template: `
+          <Primitive as-child class="parent-class">
+            <div class="child-class">{{ count }}</div>
+          </Primitive>
+        `,
+      })
+      const wrapper = mount(Counter)
+      expect(wrapper.find('div').attributes('class')).toBe(
+        'parent-class child-class'
+      )
+
+      wrapper.vm.count++
+      await wrapper.vm.$nextTick()
+
+      expect(wrapper.find('div').text()).toBe('1')
+      expect(wrapper.find('div').attributes('class')).toBe(
+        'parent-class child-class'
+      )
+    })
+
     it('should render component passed via as prop', () => {
       const Button = markRaw(
         defineComponent({

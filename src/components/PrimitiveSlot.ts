@@ -46,17 +46,14 @@ export const PrimitiveSlot = defineComponent({
         ? mergeProps(attrs, nonCommentChild.props)
         : attrs
 
-      // Prevent class duplication
-      if (attrs.class && nonCommentChild.props?.class) {
-        delete nonCommentChild.props.class
-      }
-
       const cloned = cloneVNode(nonCommentChild, mergedProps)
 
-      // Explicitly override props starting with `on`
-      // cloneVNode from Vue does not override `onXXX` props
+      // cloneVNode merges `class` and `onXXX` props with the child’s own, which
+      // would duplicate them. Override them with the merged values instead of
+      // deleting from the child’s props, which Vue may hoist and reuse across
+      // renders.
       for (const prop in mergedProps) {
-        if (prop.startsWith('on')) {
+        if (prop === 'class' || prop.startsWith('on')) {
           cloned.props ||= {}
           cloned.props[prop] = mergedProps[prop]
         }
